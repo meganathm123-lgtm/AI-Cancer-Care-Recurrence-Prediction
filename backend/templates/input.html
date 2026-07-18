@@ -1,0 +1,308 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<meta charset="UTF-8">
+<title>Cancer Recurrence Risk – Input</title>
+
+<style>
+
+body {
+  background: linear-gradient(135deg, #f5f7fb, #eef2f8);
+  font-family: Arial;
+}
+
+/* ===================== */
+/* NAVBAR CSS */
+/* ===================== */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#0d6efd;
+  color:white;
+  padding:12px 25px;
+}
+
+.logo{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:500;
+}
+
+.menu a:hover{
+  text-decoration:underline;
+}
+
+/* ===================== */
+/* FORM BOX */
+/* ===================== */
+
+.box {
+  width:460px;
+  margin:50px auto;
+  background:#fff;
+  padding:26px;
+  border-radius:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+label {
+  font-weight:600;
+  display:block;
+  margin-top:12px;
+}
+
+input, select {
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  border-radius:6px;
+  border:1px solid #ced4da;
+}
+
+button {
+  width:100%;
+  margin-top:20px;
+  padding:12px;
+  background:#0d6efd;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ===================== */
+/* ✅ LOADING SPINNER */
+/* ===================== */
+
+#loading {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-size: 18px;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===================== -->
+<!-- NAVBAR -->
+<!-- ===================== -->
+
+<div class="navbar">
+
+  <div class="logo">
+    <i class="fa-solid fa-shield-virus"></i>
+    Cancer Recurrence AI System
+  </div>
+
+  <div class="menu">
+    <a href="/">Home</a>
+    <a href="/patient">Patient Portal</a>
+    <a href="/clinical">Clinical Portal</a>
+    <a href="/analytics">Analytics</a>
+  </div>
+
+</div>
+
+<!-- ✅ LOADING MESSAGE (added here) -->
+<div id="loading">
+  Analyzing clinical data...
+</div>
+
+<!-- ===================== -->
+<!-- INPUT FORM -->
+<!-- ===================== -->
+
+<div class="box">
+
+<h2>
+  <i class="fa-solid fa-shield-virus" style="color:#198754;"></i>
+  Cancer Recurrence Risk Prediction
+</h2>
+
+<h1>Cancer Recurrence Risk Prediction</h1>
+
+<p style="font-size:18px; color:#555;">
+AI-Powered Clinical Decision Support System for Cancer Recurrence Prediction
+</p>
+
+<label>Cancer Type</label>
+<select id="cancer_type">
+  <option>Breast Cancer</option>
+  <option>Lung Cancer</option>
+  <option>Colon Cancer</option>
+  <option>Prostate Cancer</option>
+</select>
+
+<label>Age</label>
+<input id="age" type="number">
+
+<label>Gender</label>
+<select id="gender">
+<option>Male</option>
+<option>Female</option>
+</select>
+
+<label>Tumor Size</label>
+<select id="tumor_size">
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+</select>
+
+<label>Tumor Area</label>
+<select id="tumor_area">
+<option>Low</option>
+<option>Moderate</option>
+<option>High</option>
+</select>
+
+<label>Tumor Shape</label>
+<select id="tumor_shape">
+<option>Regular</option>
+<option>Irregular</option>
+</select>
+
+<label>Cancer Stage</label>
+<select id="stage">
+<option>Early</option>
+<option>Middle</option>
+<option>Advanced</option>
+</select>
+
+<label>Treatment Type</label>
+<select id="treatment">
+<option>Surgery</option>
+<option>Chemotherapy</option>
+<option>Radiotherapy</option>
+<option>Combination</option>
+</select>
+
+<label>Lymph Node Involvement</label>
+<select id="lymph">
+<option>No</option>
+<option>Yes</option>
+</select>
+
+<label>Tumor Grade</label>
+<select id="grade">
+<option>Low</option>
+<option>Intermediate</option>
+<option>High</option>
+</select>
+
+<label>Family History of Cancer</label>
+<select id="family_history">
+<option>No</option>
+<option>Yes</option>
+</select>
+
+<label>Smoking / Lifestyle Risk</label>
+<select id="smoking">
+<option>No</option>
+<option>Yes</option>
+</select>
+
+<button onclick="predict()">Predict Risk</button>
+
+<br><br>
+
+<a href="/">
+<button style="background:#05e410;">Back to Home</button>
+</a>
+
+</div>
+
+<script>
+
+function predict() {
+
+  // ✅ SHOW LOADING
+  document.getElementById("loading").style.display = "block";
+
+  sessionStorage.setItem("Age", age.value);
+  sessionStorage.setItem("Gender", gender.value);
+  sessionStorage.setItem("Tumor Size", tumor_size.value);
+  sessionStorage.setItem("Tumor Area", tumor_area.value);
+  sessionStorage.setItem("Tumor Shape", tumor_shape.value);
+  sessionStorage.setItem("Cancer Stage", stage.value);
+  sessionStorage.setItem("Cancer Type", document.getElementById("cancer_type").value);
+  sessionStorage.setItem("Treatment", treatment.value);
+  sessionStorage.setItem("Lymph Nodes", lymph.value);
+  sessionStorage.setItem("Grade", grade.value);
+  sessionStorage.setItem("Family History", family_history.value);
+  sessionStorage.setItem("Smoking", smoking.value);
+
+  fetch("/predict", {
+
+  method: "POST",
+
+  headers: { "Content-Type": "application/json" },
+
+  body: JSON.stringify({
+
+    cancer_type: document.getElementById("cancer_type").value,
+    age: age.value,
+    gender: gender.value,
+    tumor_size: tumor_size.value,
+    tumor_area: tumor_area.value,
+    tumor_shape: tumor_shape.value,
+    stage: stage.value,
+    treatment: document.getElementById("treatment").value,
+    lymph: document.getElementById("lymph").value,
+    grade: document.getElementById("grade").value,
+    family_history: document.getElementById("family_history").value,
+    smoking: document.getElementById("smoking").value
+
+  })
+
+})
+
+.then(response => response.json())
+
+.then(data => {
+
+  console.log("Prediction result:", data);
+
+  sessionStorage.setItem("result", JSON.stringify(data));
+ // alert("Check console for response");
+   window.location.href = "/result";
+
+})
+
+.catch(error => {
+
+  console.error("Error:", error);
+
+  alert("Prediction failed. Check console.");
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

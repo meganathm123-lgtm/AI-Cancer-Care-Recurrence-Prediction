@@ -1,0 +1,44 @@
+[
+    {
+        "name": "mmmmm",
+        "email": "m@gmail.com",
+        "password": "$2b$12$Bd7IeC7l5sR2Unrm3uoh1.O2wQgyWmsS6mCRL9a5HqGctYJ3ONYVG",
+        "role": "admin"
+    },
+    {
+        "name": "mmmmmm",
+        "email": "m@gmail.com",
+        "password": "$2b$12$a.MS6EUGWYmV/ZDXYFxxzOIomk0wynhnYRUtrpu4YzN.dGTGhDkU.",
+        "role": "patient"
+    },
+    {
+        "name": "mega",
+        "email": "mega@gmail.com",
+        "password": "$2b$12$DkvuvLT5pedqQZ38vuV/euaJo4sEk5YLq1ZMswi3OKO6F7VwrnqB6",
+        "role": "patient"
+    },
+    {
+        "name": "mega",
+        "email": "m@gmail.com",
+        "password": "$2b$12$xEcOoZ8xtr/b4mJOwSnQje.bBiK6x7eqtf0.9ekOG.TVqhfvvLdR2",
+        "role": "patient"
+    },
+    {
+        "name": "hen",
+        "email": "h@gmail.com",
+        "password": "$2b$12$s.Emay9i1aEnotFComLbOefch4VqLnoOrTSUIijlKgzakWXkE2K6S",
+        "role": "patient"
+    },
+    {
+        "name": "k",
+        "email": "k@gmail.com",
+        "password": "$2b$12$FxfkvAkZfG88q65gtqH26.BYC4HR8/6bH8kFz6j6PW43Y7Y3SN0jK",
+        "role": "admin"
+    },
+    {
+        "name": "l",
+        "email": "l@gmail.com",
+        "password": "$2b$12$idiYQng/hXpD3975hKkMzucktW./U9PV1pVXLq36yK9Ovj6mnuW/S",
+        "role": "patient"
+    }
+]

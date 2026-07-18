@@ -1,0 +1,222 @@
+/* 🌍 REMOVE GLOBAL BODY OVERRIDE (IMPORTANT) */
+/* ❌ NO body styling here */
+
+/* 🔥 PAGE CENTER */
+.page-center {
+  position: relative;
+  z-index: 10;
+}
+
+
+/* 🧊 MAIN CARD */
+.box {
+  width: 520px;
+  margin: 80px auto;
+  padding: 30px;
+
+ background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+
+  position: relative;
+  z-index: 10;
+
+  overflow: visible;   /* 🔥 IMPORTANT (allow expansion) */
+}
+
+/* 🧾 EXTRA CARD */
+.card {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  
+ background: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(12px);
+
+  color: #111;
+  border-radius: 15px;
+}
+
+/* ✅ TEXT FIX */
+.box h2, 
+.box h3 {
+  color: #111827;
+}
+
+.box p {
+  color: #374151;
+}
+
+/* BADGE */
+.badge {
+  display:inline-block;
+  padding:8px 20px;
+  border-radius:30px;
+  font-weight:700;
+  margin:14px 0;
+}
+
+/* COLORS */
+.low { background:#052e16; color:#22c55e; }
+.medium { background:#3f2f00; color:#facc15; }
+.high { background:#450a0a; color:#ef4444; }
+
+/* RISK BAR */
+.meter {
+  height:18px;
+  background:#1e293b;
+  border-radius:10px;
+  overflow:hidden;
+  margin:10px 0;
+}
+
+.fill { height:100%; }
+
+.fill.low { background:#22c55e; }
+.fill.medium { background:#facc15; }
+.fill.high { background:#ef4444; }
+
+/* 🔘 BUTTONS */
+button {
+  width:48%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.primary {
+  background: linear-gradient(45deg, #06b6d4, #3b82f6);
+  color:#fff;
+}
+
+.secondary {
+  background: linear-gradient(45deg, #22c55e, #16a34a);
+  color:#fff;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(59,130,246,0.6);
+}
+
+/* BUTTON GROUP */
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;   /* 🔥 ADD SPACE */
+  position: relative;
+  z-index: 5;
+}
+
+/* INFO BOX */
+.info-box {
+ background: rgba(255, 255, 255, 0.85);
+
+  color: #111;
+  padding:12px;
+  border-radius:10px;
+  margin-top:15px;
+  font-size:14px;
+}
+
+/* DISCLAIMER */
+.disclaimer {
+  font-size:12px;
+  color:#6b7280;
+  margin-top:15px;
+}
+
+/* CHART TEXT */
+.chart-note {
+  font-size:13px;
+   margin-top: 10px;
+  color:#6b7280;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .box {
+    width: 90%;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  button {
+    width:100%;
+    margin-top:10px;
+  }
+
+  .btn-group {
+    flex-direction:column;
+  }
+}
+
+canvas {
+  opacity: 1 !important;
+}
+.main-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 32px;
+  color: #3b82f6;
+}
+
+.result-chart {
+  width: 100%;
+  height: 260px;
+  margin: 20px 0;
+
+  padding: 15px;
+  background: #f9fafb;
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.result-chart canvas {
+  width: 100% !important;
+  height: 240px !important;
+}
+
+h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+
+.result-container {
+  background: transparent !important;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+.page-center {
+  background: transparent !important;
+}
+
+.box {
+  background: rgba(255,255,255,0.85); /* keep card only */
+}
+.box {
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(59,130,246,0.7);
+}

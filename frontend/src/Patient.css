@@ -1,0 +1,108 @@
+/* 🚫 DO NOT STYLE BODY HERE (IMPORTANT) */
+
+/* 🌐 PAGE LAYER FIX */
+.page-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* 🧊 MAIN CARD */
+.box {
+  width: 460px;
+  margin: 60px auto;
+
+  background: #ffffff; /* 🔥 SOLID (no blur issue) */
+
+  padding: 26px;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+  position: relative;
+  z-index: 10;
+}
+/* 🏷️ LABELS */
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 12px;
+  color: #111827;
+}
+
+/* 🔤 INPUTS */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  background: #fff;
+}
+
+/* 🔘 BUTTON */
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: linear-gradient(45deg, #06b6d4, #3b82f6);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(59,130,246,0.5);
+}
+
+/* 🔄 LOADING BOX */
+#loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  font-size: 18px;
+  font-weight: bold;
+  color: #9417ca;
+  z-index: 1000;
+}
+
+/* 📝 TAGLINE */
+.tagline {
+  font-size: 16px;
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+/* 🧠 TITLE */
+.box h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+/* 🔙 BACK BUTTON CUSTOM COLOR */
+button:last-child {
+  background: linear-gradient(45deg, #22c55e, #16a34a);
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 500px) {
+  .box {
+  background: rgba(255,255,255,0.95); /* 🔥 FIX */
+  backdrop-filter: blur(8px);
+}
+}
+.page-content {
+  position: relative;
+  z-index: 10;
+}

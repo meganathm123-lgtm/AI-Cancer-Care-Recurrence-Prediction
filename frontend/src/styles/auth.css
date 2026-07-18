@@ -1,0 +1,63 @@
+.auth-card {
+  width: 350px;
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;   /* 🔥 IMPORTANT */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.auth-card input,
+.auth-card select,
+.gradient-btn,
+.google-btn {
+  width: 100%;              /* 🔥 IMPORTANT */
+  max-width: 350px;        /* 🔥 SAME SIZE */
+  box-sizing: border-box;
+  width: 100%;
+  
+}
+.auth-card input,
+.auth-card select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;   /* 🔥 IMPORTANT */
+}
+
+/* Optional: better dropdown arrow spacing */
+.auth-card select {
+  background-color: white;
+  cursor: pointer;
+
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+}
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.social-buttons button {
+  flex: 1;
+}
+
+.link {
+  color: blue;
+  cursor: pointer;
+}

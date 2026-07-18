@@ -1,0 +1,49 @@
+# ==========================
+# Python
+# ==========================
+
+# Virtual Environment
+venv/
+backend/venv/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment Variables
+.env
+.env.*
+
+# SQLite Database
+*.db
+*.sqlite3
+
+# Python Logs
+*.log
+
+# ==========================
+# Node.js / React
+# ==========================
+
+frontend/node_modules/
+frontend/build/
+
+# npm Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================
+# VS Code
+# ==========================
+
+.vscode/
+
+# ==========================
+# Operating System Files
+# ==========================
+
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Explainable AI</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f7fb;
+margin:40px;
+}
+
+.chart-box{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="navbar">
+    <div class="logo">
+        <i class="fa-solid fa-shield-virus"></i>
+        Cancer Recurrence AI System
+    </div>
+
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/patient">Patient Portal</a>
+        <a href="/clinical">Clinical Portal</a>
+        <a href="/analytics">Analytics</a>
+    </div>
+</div>
+<h2>Model Explainability (Feature Importance)</h2>
+
+<div class="chart-box">
+<canvas id="importanceChart"></canvas>
+</div>
+
+<script>
+
+const labels = JSON.parse('{{ labels | tojson }}');
+const values = JSON.parse('{{ values | tojson }}');
+
+new Chart(document.getElementById("importanceChart"), {
+
+type: "bar",
+
+data: {
+labels: labels,
+
+datasets: [{
+label: "Feature Importance",
+data: values,
+backgroundColor: "#0d6efd"
+}]
+
+},
+
+options: {
+indexAxis: 'y'
+}
+
+});
+
+</script>
+
+</body>
+</html>

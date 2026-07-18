@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   
+    <title>Cancer Recurrence Risk Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+        .container {
+            width: 450px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #eef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Cancer Recurrence Risk</h2>
+
+    <label>Age</label>
+    <input type="number" id="age" placeholder="Enter age">
+
+    <label>Gender</label>
+    <select id="gender">
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
+    <label>Tumor Size (as per report)</label>
+    <select id="tumor_size">
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+    </select>
+
+    <label>Tumor Area (as per report)</label>
+    <select id="tumor_area">
+        <option>Low</option>
+        <option>Moderate</option>
+        <option>High</option>
+    </select>
+
+    <label>Tumor Shape</label>
+    <select id="tumor_shape">
+        <option>Regular</option>
+        <option>Irregular</option>
+    </select>
+
+    <label>Cancer Stage</label>
+    <select id="stage">
+        <option>Early</option>
+        <option>Middle</option>
+        <option>Advanced</option>
+    </select>
+
+    <button onclick="predictRisk()">Predict Risk</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function predictRisk() {
+    const data = {
+        age: document.getElementById("age").value,
+        gender: document.getElementById("gender").value,
+        tumor_size: document.getElementById("tumor_size").value,
+        tumor_area: document.getElementById("tumor_area").value,
+        tumor_shape: document.getElementById("tumor_shape").value,
+        stage: document.getElementById("stage").value
+    };
+
+    fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        document.getElementById("result").innerHTML = `
+            <b>Risk Level:</b> ${result.risk_level}<br>
+            <b>Risk Score:</b> ${result.risk_score}%<br>
+            <b>Interpretation:</b> ${result.interpretation}
+        `;
+    })
+    .catch(error => {
+        document.getElementById("result").innerHTML = "Error connecting to server";
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f5f7fb;
+margin:40px;
+}
+
+.card{
+display:inline-block;
+background:white;
+padding:20px;
+margin:10px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+width:200px;
+text-align:center;
+}
+
+table{
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:10px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#0d6efd;
+color:white;
+}
+
+button{
+padding:10px 15px;
+background:#198754;
+color:white;
+border:none;
+border-radius:6px;
+margin-top:20px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="navbar">
+    <div class="logo">
+        <i class="fa-solid fa-shield-virus"></i>
+        Cancer Recurrence AI System
+    </div>
+
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/patient">Patient Portal</a>
+        <a href="/clinical">Clinical Portal</a>
+        <a href="/analytics">Analytics</a>
+    </div>
+</div>
+<h2>Hospital Admin Dashboard</h2>
+
+<div class="card">
+<h3>Total Predictions</h3>
+<h1>{{total}}</h1>
+</div>
+
+<div class="card">
+<h3>High Risk Cases</h3>
+<h1>{{high_risk}}</h1>
+</div>
+
+<div class="card">
+<h3>Low Risk Cases</h3>
+<h1>{{low_risk}}</h1>
+</div>
+
+<br>
+
+<a href="/export-csv">
+<button>Download Dataset CSV</button>
+</a>
+
+<h3>Recent Patients</h3>
+<br><br>
+
+<a href="/admin">
+<button style="background:#198754;">Admin Dashboard</button>
+</a>
+
+<a href="/analytics">
+<button style="background:#0d6efd;">Analytics Dashboard</button>
+</a>
+
+<a href="/feature-importance">
+<button style="background:#6f42c1;">Explainable AI</button>
+</a>
+
+<br><br>
+
+<a href="/">
+<button style="background:#6c757d;">Back to Home</button>
+</a>
+<table>
+<tr>
+<th>Patient ID</th>
+<th>Cancer Type</th>
+<th>Risk Score</th>
+<th>Risk Level</th>
+<th>Date</th>
+</tr>
+
+{% for r in recent %}
+<tr>
+<td>{{r[0]}}</td>
+<td>{{r[1]}}</td>
+<td>{{r[2]}}</td>
+<td>{{r[3]}}</td>
+<td>{{r[4]}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

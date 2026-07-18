@@ -1,0 +1,75 @@
+/* 🌌 MAIN BACKGROUND */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  z-index: -1;   /* 🔥 IMPORTANT FIX */
+  pointer-events: none;
+  overflow: hidden;
+
+  /* 🔥 SOFT LIGHT BACKGROUND (not hiding UI) */
+  background: linear-gradient(-45deg, #a4e5d1, #a4e5d1, #a4e5d1, #a4e5d1);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+/* 🔥 ICON LAYER */
+.bg-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* 🧬 FLOAT ICONS */
+.float-icon {
+  position: absolute;
+  width: 65px;
+
+  opacity: 30.0;  /* 🔥 MORE VISIBLE */
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+
+  animation: floatUp linear infinite;
+}
+
+/* RANDOM POSITIONS */
+.float-icon:nth-child(1) { left: 5%; animation-duration: 15s; }
+.float-icon:nth-child(2) { left: 15%; animation-duration: 17s; }
+.float-icon:nth-child(3) { left: 30%; animation-duration: 12s; }
+.float-icon:nth-child(4) { left: 45%; animation-duration: 13s; }
+.float-icon:nth-child(5) { left: 60%; animation-duration: 12s; }
+.float-icon:nth-child(6) { left: 75%; animation-duration: 15s; }
+.float-icon:nth-child(7) { left: 85%; animation-duration: 11s; }
+.float-icon:nth-child(8) { left: 20%; animation-duration: 14s; }
+.float-icon:nth-child(9) { left: 50%; animation-duration: 12s; }
+.float-icon:nth-child(10){ left: 90%; animation-duration: 13s; }
+/* SPEED VARIATION */
+.slow { animation-duration: 45s; }
+.medium { animation-duration: 30s; }
+.fast { animation-duration: 22s; }
+
+/* LEFT → RIGHT FLOAT */
+@keyframes floatUp {
+  0% {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+
+  20% {
+    opacity:30.0;
+  }
+
+  100% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}
+
+/* GRADIENT ANIMATION */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

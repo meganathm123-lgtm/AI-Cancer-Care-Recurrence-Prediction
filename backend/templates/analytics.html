@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Prediction Analytics Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+.chart-box {
+  width: 500px;
+  height: 350px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+body{
+font-family:Arial;
+background:#f5f7fb;
+margin:40px;
+}
+
+.chart-box{
+background:white;
+padding:20px;
+margin-top:30px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(68, 10, 10, 0.834);
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="navbar">
+    <div class="logo">
+        <i class="fa-solid fa-shield-virus"></i>
+        Cancer Recurrence AI System
+    </div>
+
+    <h2 style="text-align:center;">📊 Prediction Analytics Dashboard</h2>
+</div>
+
+<h2>Prediction Analytics Dashboard</h2>
+
+<div class="chart-box">
+<h3>Risk Level Distribution</h3>
+
+  <canvas id="riskChart"></canvas>
+</div>
+</div>
+
+<div class="chart-box">
+<h3>Cancer Type Distribution</h3>
+<canvas id="cancerChart"></canvas>
+</div>
+
+<div class="chart-box">
+<h3>Prediction Trend</h3>
+<canvas id="trendChart"></canvas>
+</div>
+
+<script>
+
+const riskLabels = JSON.parse('{{ risk_labels | tojson }}');
+const riskCounts = JSON.parse('{{ risk_counts | tojson }}');
+
+const cancerLabels = JSON.parse('{{ cancer_labels | tojson }}');
+const cancerCounts = JSON.parse('{{ cancer_counts | tojson }}');
+
+const trendLabels = JSON.parse('{{ trend_labels | tojson }}');
+const trendCounts = JSON.parse('{{ trend_counts | tojson }}');
+// Risk Pie Chart
+new Chart(document.getElementById("riskChart"), {
+type: "pie",
+data: {
+labels: riskLabels,
+datasets: [{
+data: riskCounts
+}]
+}
+});
+
+// Cancer Bar Chart
+new Chart(document.getElementById("cancerChart"), {
+type: "bar",
+data: {
+labels: cancerLabels,
+datasets: [{
+label: "Cases",
+data: cancerCounts
+}]
+}
+});
+
+// Trend Line Chart
+new Chart(document.getElementById("trendChart"), {
+type: "line",
+data: {
+labels: trendLabels,
+datasets: [{
+label: "Predictions",
+data: trendCounts
+}]
+}
+});
+
+</script>
+
+</body>
+</html>
