@@ -342,83 +342,40 @@ The project uses **SHAP (SHapley Additive exPlanations)** as part of this workfl
 # 🏗️ System Architecture
 
 ```mermaid
-flowchart TB
+flowchart LR
 
     U["👤 User"]
 
-    subgraph FE["🌐 React Frontend"]
-        LOGIN["🔐 Login / Signup"]
-        PATIENT["👤 Patient Input"]
-        RESULT["📈 Prediction Results"]
-        EXPLAIN["🔍 Explainability"]
-        ANALYTICS["📊 Analytics Dashboard"]
-        ADMIN["🛡️ Admin Dashboard"]
+    subgraph FRONTEND["🌐 React Frontend"]
+        UI["Login • Clinical Input<br/>Results • Analytics"]
     end
 
-    subgraph BE["⚙️ Flask Backend"]
-        AUTH["🔑 Authentication<br/>JWT + Bcrypt"]
-        API["🔌 REST API"]
-        VALIDATE["🧹 Input Processing<br/>Feature Mapping"]
-        PREDICT["🎯 Prediction Service"]
-        HISTORY["📝 History Service"]
-        REPORT["📄 Report Service"]
+    subgraph BACKEND["⚙️ Flask Backend"]
+        API["REST API<br/>Authentication • Processing"]
     end
 
-    subgraph ML["🤖 Machine Learning Layer"]
-        MODEL["🌳 XGBoost Classifier<br/>model.pkl"]
-        PROB["📊 Prediction Probability"]
-        RISK["⚠️ Risk Score &<br/>Risk Classification"]
-        SHAP["🔍 SHAP Explainability"]
+    subgraph AI["🤖 AI / ML"]
+        MODEL["XGBoost Model<br/>Prediction • Risk Score"]
+        SHAP["SHAP<br/>Explainability"]
     end
 
-    subgraph DATA["🗄️ Data Layer"]
-        SQLITE["SQLite Database"]
-        DATASET["📂 Clinical Dataset"]
-        CSV["📑 CSV Export"]
+    subgraph DATA["🗄️ Data"]
+        DB["SQLite<br/>Prediction History"]
     end
 
-    subgraph OUT["📤 Application Outputs"]
-        DASH["📊 Dashboards"]
-        PDF["📄 PDF Reports"]
-        HISTORYOUT["📜 Prediction History"]
+    subgraph OUTPUT["📊 Outputs"]
+        OUT["Dashboard • PDF Reports<br/>Analytics • History"]
     end
 
-    U --> LOGIN
-    U --> PATIENT
-
-    LOGIN --> AUTH
-    AUTH --> API
-
-    PATIENT --> API
-    API --> VALIDATE
-    VALIDATE --> PREDICT
-
-    PREDICT --> MODEL
-    MODEL --> PROB
-    PROB --> RISK
+    U --> UI
+    UI --> API
+    API --> MODEL
     MODEL --> SHAP
-
-    RISK --> RESULT
-    SHAP --> EXPLAIN
-
-    RISK --> HISTORY
-    HISTORY --> SQLITE
-
-    DATASET --> MODEL
-    SQLITE --> HISTORYOUT
-    SQLITE --> CSV
-
-    SQLITE --> ANALYTICS
-    SQLITE --> ADMIN
-
-    ANALYTICS --> DASH
-    ADMIN --> DASH
-
-    RESULT --> REPORT
-    REPORT --> PDF
-
-    HISTORYOUT --> DASH
-    CSV --> DASH
+    MODEL --> DB
+    SHAP --> UI
+    DB --> OUT
+    MODEL --> OUT
+    OUT --> UI
 ```
 
 ---
